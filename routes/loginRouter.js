@@ -2,20 +2,20 @@ const { Router } = require("express");
 const passport = require("../middlewares/passport.js");
 const loginRouter = Router();
 
-// function authorize(req, res, next) {
-//   if (req.session.user === "admin") {
-//     return next();
-//   } else {
-//     res.status(401).send("No estas autorizado");
-//   }
-// }
+const logger = require('../logs/logger')
 
 loginRouter.get("/", (req, res) => {
+    const { method } = req;
+    const time = new Date().toLocaleString();
+    logger.info(`Ruta /login [${time}] ${method}`);
     res.render("login");
 });
 
 loginRouter.post("/", passport.authenticate("local", {failureRedirect: "/loginError"}),
     (req, res) => {
+        const { method } = req;
+        const time = new Date().toLocaleString();
+        logger.info(`Ruta /login [${time}] ${method}`);
         res.redirect("/");
     }
 );

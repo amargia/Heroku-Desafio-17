@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const infoRouter = Router();
 
+const logger = require('../logs/logger')
+
 const info = {
     Argumentos: process.argv.slice(2),
     Plataforma: process.platform,
@@ -12,6 +14,9 @@ const info = {
 }
 
 infoRouter.get("/", (req, res) => {
+  const { method } = req;
+  const time = new Date().toLocaleString();
+  logger.info(`Ruta /info [${time}] ${method}`);
   res.status(200).send(info);
 });
 

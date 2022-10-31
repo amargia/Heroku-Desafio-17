@@ -4,6 +4,8 @@ const nginxRandom = Router();
 
 const numCpus = require("os").cpus().length;
 
+const logger = require('../logs/logger')
+
 const Port = parseInt(process.argv[2]) || 8080;
 
 const random = () => {
@@ -11,6 +13,9 @@ const random = () => {
 }
 
 nginxRandom.get("/", (req, res) => {
+    const { method } = req;
+    const time = new Date().toLocaleString();
+    logger.info(`Ruta /random [${time}] ${method}`);
     console.log(`Request received on ${Port} Date: ${new Date()}`);
     const randomNum = random();
     const info = {

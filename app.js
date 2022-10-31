@@ -109,9 +109,11 @@ io.on('connection', async function(socket) {
   socket.on('newMessage', async function(data) {
     try {
       chat.add(data);
+      logger.info(`Mensaje: Nuevo - time: ${new Date().toLocaleString()}`)
       const messages = await chat.list();      
       io.sockets.emit('messages', messages);
     } catch (error) {
+      logger.error(`Mensaje: Error - time: ${new Date().toLocaleString()}`)
       console.log(error);
     }
   });
