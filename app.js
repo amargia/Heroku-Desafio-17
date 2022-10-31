@@ -119,7 +119,7 @@ io.on('connection', async function(socket) {
   });
 });
 
-let port = 8080;
+const port = process.env.PORT || 3000
 let dataPort = minimist(['--port', process.argv.slice(2)]);
 if (typeof(dataPort.port) === "number") {
   port = dataPort.port;
