@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url = process.env.MONGO_URL || 'mongodb://localhost:27017/ecommerce';
+const url = process.env.MONGO_URL || 'mongodb+srv://Backend:Backend@cluster0.6xdsyrn.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(
     url ,
