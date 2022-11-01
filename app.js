@@ -68,7 +68,7 @@ if(cluster.isPrimary) {
   
   app.use(session({
     store: new MongoStore({ 
-      mongoUrl: process.env.MONGO_URL || 'mongodb://localhost:27017/ecommerce',
+      mongoUrl: process.env.MONGO_URL,
       mongoOptions: advancedOptions,
     }),
     secret: "coder",
