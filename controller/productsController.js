@@ -7,19 +7,19 @@ class Contenedor {
     return productos;
   }
 
-  static create(title, price, thumbnail) {
-    const prod = methodBank.add({title, price, thumbnail});
+  static create(product) {
+    const prod = methodBank.add(product);
     return prod;
   }
 
-  static delete(id) {
-    const deleteProd = methodBank.deleteById(id);
-    return deleteProd;
-  }
+//   static delete(id) {
+//     const deleteProd = methodBank.deleteById(id);
+//     return deleteProd;
+//   }
 
-  static getById(id) {
-    return methodBank.getById(id)
-  }
+//   static getById(id) {
+//     return methodBank.getById(id)
+//   }
 }
 
 module.exports = Contenedor;
