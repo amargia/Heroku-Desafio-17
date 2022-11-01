@@ -29,7 +29,7 @@ const list = async () => {
 const add = async (product) => {
   try {
     const newProduct = new Product(product);
-    const data = await newProduct.save();
+    const data = await newProduct.add();
     return data;
   } catch (error) {
     throw new Error('No se pudo crear el producto', error)
